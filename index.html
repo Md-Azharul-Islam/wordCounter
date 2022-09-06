@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word and Character Counter</title>
+    <style>
+        body{
+            padding: 40px 90px;
+        }
+        #container{
+            height: 400px;
+            width: 600px;
+            background-color: rgb(12, 12, 12);
+            border-top-right-radius: 20px;
+            margin-left: 350px;
+        }
+        h1{
+            padding: 3px;
+            background-color: #45b9f3;
+            color: black;
+            text-align: center;
+            border-top-right-radius: 20px;
+        }
+        #textbox{
+            width: 99%;
+            height: 82.5%;
+            border-color: #45b9f3;
+        }
+        
+       #counter{
+         width: 594px;
+         background-color: #45b9f3;
+         padding: 3px;
+         margin-left: 350px;
+         font-size: large;
+         font-weight: bold;
+         border-bottom-left-radius: 1.5rem;
+        
+       }
+
+       p{
+          text-align: center;
+          display: flex;
+          justify-content: space-around;
+          
+       }
+       
+    </style>
+</head>
+<body>
+    <div id="container">
+            <h1>Word and Character Counter</h1>
+            <textarea  id="textbox" cols="30" rows="10"></textarea>
+    </div>
+    <div id="counter">
+        <p>
+            <span id="word">0</span> Word counter
+            <span id="char">0</span> Character counter
+        </p>
+    </div>
+
+
+    <script>
+        let textbox = document.getElementById("textbox")
+
+
+        textbox.addEventListener('input',function(){
+            let t = this.value;
+            document.getElementById("char").innerHTML=t.length;
+            t =t.trim()
+            let words = t.split(" ")
+            let cleanList= words.filter(function(e){
+                 return e !=  "";
+            })
+            document.getElementById("word").innerHTML=cleanList.length;
+
+        })
+    </script>
+</body>
+</html>
